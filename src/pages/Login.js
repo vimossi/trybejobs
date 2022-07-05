@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-// import provider from '../../context/provider';
+import { Navigate } from 'react-router-dom';
+// import Todo from '../pages/Home';
 
 export default function Login() {
   
@@ -15,7 +16,7 @@ const handlePassword = ({ target }) => {
 };
 
 const validaPassword = () => {
-  const passwordLength = 7;
+  const passwordLength = 6;
   if (password.length >= passwordLength) {
     return true;
   }
@@ -30,6 +31,13 @@ const validaLogin = () => {
   }
   return false;
 };
+
+const validateRoute = () => {
+  if (validaLogin && validaPassword === true) {
+    return <Navigate to="/Todo" />
+  }
+}
+
 
   return (
     <form>
@@ -60,6 +68,7 @@ const validaLogin = () => {
         data-testid="login-submit-btn"
         // onClick={ redirectToTarget }
         disabled={ !(validaLogin() && validaPassword()) }
+        onClick={ validateRoute() }
       >
         Entrar
       </button>

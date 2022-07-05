@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import MyContext from './MyContext';
 
 function MyProvider({ children }) {
-  const [token, setToken] = useState('');
+  // const [token, setToken] = useState('');
   const [email, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const context = {
-    token,
-    setToken,
+    // token,
+    // setToken,
     email,
     setUserEmail,
     password,
